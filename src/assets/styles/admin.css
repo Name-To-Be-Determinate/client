@@ -1,0 +1,205 @@
+body:not(.login) main#admin .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body:not(.login) main#admin .content h1 {
+  display: inline-flex;
+  font-family: "Poppins";
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: 0.05em;
+  font-size: 2.5rem;
+  height: 60px;
+  width: 100%;
+  padding: 0 3em;
+  margin: 1.5em 0;
+  text-transform: uppercase;
+}
+body:not(.login) main#admin .content h1::before {
+  content: "";
+  display: block;
+  width: 6px;
+  height: 100%;
+  background: #127bfb;
+  border-radius: 3px;
+  margin-right: 15px;
+}
+body:not(.login) main#admin .content .buttons {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+body:not(.login) main#admin .content .buttons button {
+  position: relative;
+  width: 35%;
+  min-width: 300px;
+  background: linear-gradient(90deg, rgba(18, 123, 251, 0.8117647059) 0%, rgba(0, 0, 0, 0.8) 140%);
+  height: 4em;
+  outline: none;
+  border: none;
+  text-align: left;
+  padding-left: 2em;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+body:not(.login) main#admin .content .buttons button span:first-child {
+  position: absolute;
+  left: -12px;
+  width: 24px;
+  height: 24px;
+  background: #127bfb;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 21px;
+  font-size: 1.5rem;
+  color: #fff;
+  font-weight: 100;
+  font-family: "Inter";
+}
+body:not(.login) main#admin .content .buttons button span:last-child {
+  color: #fff;
+  font-family: "Poppins";
+  font-weight: 800;
+  font-family: 1.4em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+body:not(.login) main#admin .content .buttons button:hover,
+body:not(.login) main#admin .content .buttons button:focus {
+  background: #127bfb;
+}
+body:not(.login) main#admin .content .buttons button:last-child {
+  background: linear-gradient(90deg, rgba(251, 18, 46, 0.7490196078) 0%, rgba(0, 0, 0, 0.8) 140%);
+}
+body:not(.login) main#admin .content .buttons button:last-child span:first-child {
+  background: #f00;
+}
+body:not(.login) main#admin .content .buttons button:last-child:hover,
+body:not(.login) main#admin .content .buttons button:last-child:focus {
+  background: #f00;
+}
+body:not(.login) main#admin .content form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  margin-top: 2.5em;
+  gap: 0.5em;
+}
+body:not(.login) main#admin .content form h2 {
+  width: 100%;
+  color: #fff;
+  font-style: normal;
+  font-family: "Poppins";
+  font-weight: 400;
+  text-transform: capitalize;
+  font-size: 1.6rem;
+}
+body:not(.login) main#admin .content form h2::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 2px;
+  background: #009bfb;
+}
+body:not(.login) main#admin .content form .input-box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+}
+body:not(.login) main#admin .content form .input-box label {
+  color: #eee;
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.8rem;
+}
+body:not(.login) main#admin .content form .input-box input {
+  background: rgba(255, 255, 255, 0.8666666667);
+  border: none;
+  outline: none;
+  height: 35px;
+  width: 100%;
+  min-width: 350px;
+  margin-bottom: 1em;
+  border-radius: 0 5px 16px 0;
+  font-size: 1rem;
+  padding: 0 5px;
+}
+body:not(.login) main#admin .content form .input-checkbox {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 0.5em;
+}
+body:not(.login) main#admin .content form .input-checkbox input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  margin-right: 8px;
+  outline: none;
+}
+body:not(.login) main#admin .content form .input-checkbox input::after {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  border-radius: 2px;
+  background: transparent;
+  overflow: hidden;
+}
+body:not(.login) main#admin .content form .input-checkbox input::before {
+  content: "x";
+  display: block;
+  color: #fff;
+  position: absolute;
+  width: 17px;
+  text-align: center;
+  line-height: 15px;
+  font-family: "K2D";
+  transition: all 0.3s;
+  opacity: 0;
+  pointer-events: none;
+}
+body:not(.login) main#admin .content form .input-checkbox input:checked::before {
+  opacity: 1;
+}
+body:not(.login) main#admin .content form .input-checkbox label {
+  color: #fff;
+  font-family: "Poppins";
+  font-weight: 300;
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+  cursor: pointer;
+}
+body:not(.login) main#admin .content form button[type=submit] {
+  position: relative;
+  outline: none;
+  width: 100%;
+  min-width: 250px;
+  background: linear-gradient(90deg, rgba(205, 205, 205, 0.6705882353) 0%, rgba(255, 255, 255, 0.2078431373) 100%);
+  color: #fff;
+  font-size: 1.2rem;
+  font-family: "Poppins";
+  font-weight: 500;
+  height: 40px;
+  z-index: 1;
+  border-radius: 20px;
+  margin-top: 0.5em;
+}
+body:not(.login) main#admin .content form button[type=submit]::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  background: #555;
+  z-index: -1;
+  border-radius: 20px;
+}

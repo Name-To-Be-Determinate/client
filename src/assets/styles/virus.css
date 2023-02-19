@@ -1,0 +1,364 @@
+body:not(.login) main#virus .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body:not(.login) main#virus .content h1 {
+  display: inline-flex;
+  font-family: "Poppins";
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: 0.05em;
+  font-size: 2.5rem;
+  height: 60px;
+  width: 100%;
+  padding: 0 3em;
+  margin: 1.5em 0;
+  text-transform: uppercase;
+  position: relative;
+  left: -20px;
+}
+body:not(.login) main#virus .content h1::before {
+  content: "";
+  display: block;
+  width: 6px;
+  height: 100%;
+  background: #127bfb;
+  border-radius: 3px;
+  margin-right: 15px;
+}
+body:not(.login) main#virus .content .actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: calc(100% - 200px);
+}
+body:not(.login) main#virus .content .actions .search {
+  width: 20%;
+  min-width: 150px;
+  border-radius: 5px;
+  border: 2px solid #ccc;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 1rem;
+}
+body:not(.login) main#virus .content .actions .search .input {
+  color: #fff;
+}
+body:not(.login) main#virus .content .actions .add-btn {
+  position: relative;
+  width: 20%;
+  min-width: 250px;
+  background: linear-gradient(90deg, rgba(18, 123, 251, 0.8117647059) 0%, rgba(0, 0, 0, 0.8) 140%);
+  height: 50px;
+  outline: none;
+  border: none;
+  text-align: left;
+  padding-left: 2em;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+body:not(.login) main#virus .content .actions .add-btn span:first-child {
+  position: absolute;
+  left: -12px;
+  width: 24px;
+  height: 24px;
+  background: #127bfb;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 21px;
+  font-size: 1.5rem;
+  color: #fff;
+  font-weight: 200;
+  font-family: "Inter";
+}
+body:not(.login) main#virus .content .actions .add-btn span:last-child {
+  color: #fff;
+  font-family: "Poppins";
+  font-weight: 800;
+  font-family: 1.4em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+body:not(.login) main#virus .content .actions .add-btn:hover,
+body:not(.login) main#virus .content .actions .add-btn:focus {
+  background: #127bfb;
+}
+body:not(.login) main#virus .content ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  width: calc(100% - 3em);
+  margin-top: 2em;
+  gap: 1em;
+}
+body:not(.login) main#virus .content ul li {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  position: relative;
+}
+body:not(.login) main#virus .content ul li > span {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 8px;
+  left: 0;
+  background: #222;
+  box-shadow: 0 0 4px rgba(18, 123, 251, 0.8117647059);
+  border-radius: 5px;
+  text-align: center;
+  line-height: 22px;
+  color: #fff;
+  font-weight: 200;
+  font-family: "Inter";
+  font-size: 1.2rem;
+  pointer-events: none;
+}
+body:not(.login) main#virus .content ul li details {
+  width: calc(100% - 12px);
+}
+body:not(.login) main#virus .content ul li details summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 8px 0 8px;
+  height: 40px;
+  background: linear-gradient(90deg, #fff 0%, #000 140%);
+  letter-spacing: 0.05rem;
+  overflow: hidden;
+}
+body:not(.login) main#virus .content ul li details summary h2 {
+  padding-left: 12px;
+  font-family: "Poppins";
+  font-weight: 800;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+body:not(.login) main#virus .content ul li details summary > span {
+  position: relative;
+  margin-right: 30px;
+}
+body:not(.login) main#virus .content ul li details summary > span button {
+  font-family: "Poppins";
+  font-weight: 300;
+  color: #eee;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  opacity: 1;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+body:not(.login) main#virus .content ul li details summary > span button:hover,
+body:not(.login) main#virus .content ul li details summary > span button:focus {
+  opacity: 75%;
+}
+body:not(.login) main#virus .content ul li details summary > span span {
+  position: absolute;
+  top: -100%;
+  right: -2.2rem;
+  font-family: "Poppins";
+  font-weight: 800;
+  font-size: 3rem;
+  letter-spacing: 0.05em;
+  color: #127bfb;
+  /* background: linear-gradient(180deg, #127bfb 0%, #000000 120%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent; */
+  text-shadow: 0 0 10px rgba(51, 51, 51, 0.6666666667);
+  transform: rotate(0);
+  transition: all 0.3s;
+}
+body:not(.login) main#virus .content ul li details .container {
+  background: #aeaeae;
+  width: calc(100% - 2em);
+  margin: 0 1em;
+  border-radius: 0 0 20px 20px;
+  padding-bottom: 0.5em;
+  box-shadow: -5px 5px 10px 2px rgba(255, 255, 255, 0.2);
+}
+body:not(.login) main#virus .content ul li details .container .subtitle {
+  text-align: center;
+  font-weight: 300;
+  font-family: "Poppins";
+  font-size: 1rem;
+  display: block;
+  width: 100%;
+  padding: 0.5em 0;
+}
+body:not(.login) main#virus .content ul li details .container hr {
+  margin: 0 3em;
+  border-color: #888;
+}
+body:not(.login) main#virus .content ul li details .container pre {
+  width: calc(100% - 4em);
+  margin: 0.5em 2em;
+  height: 100%;
+  max-height: 450px;
+}
+body:not(.login) main#virus .content ul li details .container pre code span {
+  font-family: "Consolas";
+}
+body:not(.login) main#virus .content ul li details .container pre::-webkit-scrollbar {
+  background: rgba(0, 0, 0, 0.2);
+  width: 10px;
+  height: 10px;
+}
+body:not(.login) main#virus .content ul li details .container pre::-webkit-scrollbar-thumb {
+  background: #fff;
+}
+body:not(.login) main#virus .content ul li details .container pre::-webkit-scrollbar-corner {
+  background: rgba(0, 0, 0, 0.2);
+}
+body:not(.login) main#virus .content ul li details[open] summary span span {
+  transform: rotate(-90deg);
+}
+body:not(.login) main#virus .add-virus {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background: rgba(0, 0, 0, 0.7333333333);
+  z-index: 10;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5;
+}
+body:not(.login) main#virus .add-virus .box-container {
+  width: 80%;
+  height: 80%;
+  background: #333;
+  position: relative;
+}
+body:not(.login) main#virus .add-virus .box-container .close {
+  position: absolute;
+  color: #eee;
+  right: 20px;
+  top: 12px;
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  opacity: 1;
+  transition: all 0.2s;
+}
+body:not(.login) main#virus .add-virus .box-container .close:hover,
+body:not(.login) main#virus .add-virus .box-container .close:focus {
+  opacity: 0.8;
+}
+body:not(.login) main#virus .add-virus .box-container label,
+body:not(.login) main#virus .add-virus .box-container div,
+body:not(.login) main#virus .add-virus .box-container p {
+  width: 100%;
+  margin: 0 2em;
+}
+body:not(.login) main#virus .add-virus .box-container h2 {
+  display: inline-flex;
+  font-family: "Poppins";
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: 0.05em;
+  font-size: 2rem;
+  height: 50px;
+  margin: 1em 1.5em;
+  text-transform: uppercase;
+  position: relative;
+}
+body:not(.login) main#virus .add-virus .box-container h2::before {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 100%;
+  background: #127bfb;
+  border-radius: 3px;
+  margin-right: 15px;
+}
+body:not(.login) main#virus .add-virus .box-container .input-file {
+  font-family: "Poppins";
+  font-weight: 300;
+  font-size: 1.4rem;
+  color: #fff;
+  min-height: 40px;
+  text-align: center;
+  padding: 1em;
+  display: block;
+  border: 2px solid #000;
+  border-radius: 0.5em;
+  margin: 0 2em;
+  width: calc(100% - 4em);
+  cursor: pointer;
+  background: #222;
+}
+body:not(.login) main#virus .add-virus .box-container p {
+  color: #ddd;
+  font-family: "Poppins";
+  font-size: 1.5rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  line-height: 3rem;
+  padding: 0.5em 0;
+}
+body:not(.login) main#virus .add-virus .box-container .code {
+  display: block;
+  background: #222;
+  border: 2px solid #000;
+  border-radius: 0.5em;
+  padding: 10px;
+  width: calc(100% - 4em - 20px);
+  position: relative;
+  left: calc(3em - 6px);
+  overflow-y: auto;
+  height: calc(100% - 23em);
+  color: #bbb;
+  font-family: "Consolas";
+  font-size: 1rem;
+  outline: none;
+  resize: none;
+}
+body:not(.login) main#virus .add-virus .box-container .code::-webkit-scrollbar {
+  background: #888;
+  width: 10px;
+  border-radius: 0 5px 5px 0;
+}
+body:not(.login) main#virus .add-virus .box-container .code::-webkit-scrollbar-thumb {
+  background: #fff;
+  border-radius: 5px;
+}
+body:not(.login) main#virus .add-virus .box-container .submit {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 1.5em 4.5em 0 0;
+}
+body:not(.login) main#virus .add-virus .box-container .submit button {
+  width: 200px;
+  height: 40px;
+  background: #127bfb;
+  border: none;
+  outline: none;
+  opacity: 1;
+  font-family: "Poppins";
+  font-weight: 500;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 250ms;
+}
+body:not(.login) main#virus .add-virus .box-container .submit button:hover,
+body:not(.login) main#virus .add-virus .box-container .submit button:focus {
+  opacity: 0.8;
+}
+body:not(.login) main#virus .add-virus.active {
+  opacity: 1;
+  pointer-events: initial;
+}
