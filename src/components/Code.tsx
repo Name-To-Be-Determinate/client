@@ -13,7 +13,7 @@ const Code = ({
     return (
         <pre>
             <code className={`language-${language}`}>
-                {children?.toString()}
+                {children instanceof Array ? children.map(e => e) : children}
             </code>
         </pre>
     );
