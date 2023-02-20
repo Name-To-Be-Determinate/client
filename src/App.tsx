@@ -1,6 +1,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
-import Home from './screens/Home';
+import Virus from './screens/Virus';
 import Login from './screens/Login';
 
 const App = () => {
@@ -9,7 +9,7 @@ const App = () => {
             <Routes>
                 <Route path="/" element={<Navigate to='/login' replace />} />
 
-                <Route path="/home" element={<Home />} />
+                <Route path="/virus" element={<Virus />} />
                 <Route path="/login" element={<Login />} />
             </Routes>
         </BrowserRouter>

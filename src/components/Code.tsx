@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { highlightAll } from 'prismjs';
 
 const Code = ({
-    children, language = "html", theme = "okaidia"
+    children, language = "html", theme = "default"
 } : CodeTypes.Types) => {
     useEffect(() => highlightAll());
 

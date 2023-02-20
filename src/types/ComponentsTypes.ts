@@ -2,7 +2,7 @@ import React from 'react';
 
 export namespace Code {
     type Themes =
-        | "koi"
+        | "coy"
         | "dark"
         | "funky"
         | "okaidia"
@@ -118,3 +118,11 @@ export namespace Code {
         theme?: Themes;
     };
 }
+
+export type VirusElement = {
+    code: string;
+    filename?: string;
+    link?: string;
+    name: string;
+    open?: boolean;
+};
