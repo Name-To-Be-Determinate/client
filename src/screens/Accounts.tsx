@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Header from '../components/Header';
 import Navigation from '../components/Navigation';
 
-import '../assets/styles/admin.css';
+import '../assets/styles/admin.min.css';
 
 const Accounts = () => {
     const [formType, setFormType] = useState(false);

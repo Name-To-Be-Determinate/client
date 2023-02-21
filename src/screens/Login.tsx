@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 import background from '../assets/images/login.svg';
 
-import '../assets/styles/login.css';
+import '../assets/styles/login.min.css';
 
 const Login = () => {
     const [authData, setAuthData] = useState({ username: "", password: "" });

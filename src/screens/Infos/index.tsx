@@ -6,7 +6,7 @@ import Element from './Element';
 import Header from '../../components/Header';
 import Navigation from '../../components/Navigation';
 
-import '../../assets/styles/virus.css';
+import '../../assets/styles/virus.min.css';
 
 const Home = () => {
     const [showForm, toggleFormStatus] = useState(false);
