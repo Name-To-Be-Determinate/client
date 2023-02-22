@@ -1,9 +1,9 @@
-type AuthState = {
-    authData: {
-        username: string;
-        password: string;
-    } | null;
+export type AuthData = {
+    username: string;
+    password: string;
 };
+
+type AuthState = { authData: AuthData | null };
 
 type ActionType = {
     payload?: any;

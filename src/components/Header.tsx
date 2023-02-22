@@ -1,13 +1,12 @@
-import { MouseEvent } from 'react';
+import { useDispatch } from 'react-redux';
+import { logout as logoutFunction } from '../actions/users';
 
 import logoutImg from '../assets/images/logout.svg';
 
 const Header = () => {
-    const logout = (e: MouseEvent<HTMLButtonElement>) => {
-        e.preventDefault();
-        console.log("Logging out");
-        e.currentTarget.blur();
-    };
+    const dispatch = useDispatch();
+    // @ts-ignore
+    const logout = () => (dispatch(logoutFunction()));
 
     return (
         <header>

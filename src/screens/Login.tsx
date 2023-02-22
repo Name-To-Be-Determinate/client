@@ -1,6 +1,10 @@
 import { ChangeEvent, FormEvent } from 'react';
 
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
+import { login } from '../actions/users';
 
 import background from '../assets/images/login.svg';
 
@@ -9,13 +13,16 @@ import '../assets/styles/login.min.css';
 const Login = () => {
     const [authData, setAuthData] = useState({ username: "", password: "" });
 
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     const changeAuthData = (e: ChangeEvent<HTMLInputElement>) => setAuthData({ ...authData, [e.target.name]: e.target.value });
 
     useEffect(() => document.body.classList.add('login'));
 
     const onSubmit = (e: FormEvent) => {
-        e.preventDefault();
-        console.log(authData);
+        e.preventDefault(); // @ts-ignore
+        dispatch(login(authData, navigate));
     };
 
     return (
