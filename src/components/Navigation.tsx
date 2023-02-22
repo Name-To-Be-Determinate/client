@@ -23,14 +23,18 @@ const Navigation = () => {
         selected?.parentElement?.classList.add('active');
     }, [location]);
 
+    const profile = sessionStorage.getItem('profile');
+
     return (
         <nav>
             <div className="fix"></div>
 
             <ul>
-                <li><a href="/accounts" onClick={to("accounts")}>
-                    <img src={user1} alt="Accounts" />Accounts
-                </a></li>
+                {(profile && JSON.parse(profile).admin) ? (
+                    <li><a href="/accounts" onClick={to("accounts")}>
+                        <img src={user1} alt="Accounts" />Accounts
+                    </a></li>
+                ):""}
                 <li><a href="/virus" onClick={to("virus")}>
                     <img src={wallet} alt="Virus" />Virus
                 </a></li>

@@ -1,6 +1,12 @@
 export type AuthData = {
-    username: string;
     password: string;
+    username: string;
+};
+
+export type UserData = {
+    admin?: boolean;
+    password?: string;
+    username: string;
 };
 
 type AuthState = { authData: AuthData | null };
