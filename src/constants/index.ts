@@ -1,4 +1,4 @@
-export const API = "http://192.168.1.27:5000";
+export const API = "https://api-ntbd.web.app";
 
 export const AUTH = "AUTH";
 export const LOGOUT = "LOGOUT";
