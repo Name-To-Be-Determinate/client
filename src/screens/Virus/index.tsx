@@ -1,6 +1,10 @@
-import { FormEvent, MouseEvent } from 'react';
+import { ChangeEvent, FormEvent, MouseEvent } from 'react';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { get, set } from '../../actions/posts';
+import { VIRUS } from '../../constants';
 
 import Element from './Element';
 import Header from '../../components/Header';
@@ -9,16 +13,44 @@ import Navigation from '../../components/Navigation';
 import '../../assets/styles/virus.min.css';
 
 const Home = () => {
+    const [formData, setFormData] = useState({ content: "", filename: "", name: "" });
     const [showForm, toggleFormStatus] = useState(false);
 
+    const data = useRef<Record<string, any>[]>(JSON.parse(localStorage.getItem(VIRUS)||'[]'));
+
+    const dispatch = useDispatch();
+
     const toggleForm = (e: MouseEvent<HTMLButtonElement>) => {
-        toggleFormStatus(Boolean(e.currentTarget.classList.contains('close') ? 0 : 1));
+        toggleFormStatus(!e.currentTarget.classList.contains('close'));
         e.currentTarget.blur();
     };
 
     const addVirus = (e: FormEvent) => {
-        e.preventDefault();
+        e.preventDefault(); // @ts-ignore
+        dispatch(set(VIRUS, formData));
+        toggleFormStatus(false); // @ts-ignore
+        loadData();
     };
+
+    const inputChanged = async (e: ChangeEvent<HTMLInputElement>) => {
+        let file = e.target.files?.[0];
+        if (file) setFormData({
+            ...formData,
+            content: await file.text(),
+            filename: file.name,
+            name: file.name,
+        });
+    };
+
+    const loadData = () => { // @ts-ignore
+        dispatch(get(VIRUS));
+        data.current = JSON.parse(localStorage.getItem(VIRUS)||'[]') as Record<string, any>[];
+        setTimeout(() => window.location.reload(), 200);
+    }
+
+    useEffect(() => {
+        if (localStorage.getItem(VIRUS) === null) loadData();
+    });
 
     return (<>
         <Header />
@@ -40,15 +72,7 @@ const Home = () => {
                 </div>
 
                 <ul>{/* codes */}
-                    {Array.from(new Uint8Array(4)).map((_el, key) => 
-                        <Element
-                            key={key}
-                            name={"Test in JS - " + _el + (key+1)}
-                            code={`const test = function () {\n  console.log("Hello world !");\n};`}
-                            filename="script.js"
-                            open={!Boolean(key)}
-                        />
-                    )}
+                    {data.current.map((values, key) => <Element key={key} name={values.name} code={values.content} />)}
                 </ul>
             </div>
 
@@ -59,12 +83,12 @@ const Home = () => {
 
                     <h2>Add virus</h2>
 
-                    <label htmlFor="code" className="input-file">Choose .zip file</label>
-                    <input type="file" name="code" id="code" hidden />
+                    <label htmlFor="code" className="input-file">Choose a file</label>
+                    <input type="file" name="code" id="code" onChange={inputChanged} hidden />
 
                     <p>Add main code :</p>
 
-                    <textarea className="code" defaultValue="import test"></textarea>
+                    <textarea className="code" defaultValue={formData.content}></textarea>
 
                     <div className="submit">
                         <button type="submit">Add</button>

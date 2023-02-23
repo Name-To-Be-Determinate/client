@@ -13,6 +13,7 @@ type AuthState = { authData: AuthData | null };
 
 type ActionType = {
     payload?: any;
+    storage?: string;
     type: string;
 };
 
@@ -25,3 +26,7 @@ interface ReturnType<State> extends Record<string, any> {
 export type AuthActions = (
     state: AuthState, action: ActionType
 ) => ReturnType<AuthState>;
+
+export type PostActions = (
+    state: any, action: ActionType
+) => ReturnType<any>;

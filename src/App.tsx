@@ -7,22 +7,30 @@ import Infos from './screens/Infos';
 import Login from './screens/Login';
 import Virus from './screens/Virus';
 
-const App = () => (
-    <BrowserRouter>
-        <Routes>
-            {isLoggedIn() ? (<>
-                <Route path="/" element={<Navigate to='/virus' replace />} />
-                <Route path="/accounts" element={<Accounts />} />
-                <Route path="/infos" element={<Infos />} />
-                <Route path="/virus" element={<Virus />} />
-            </>) : (<>
-                <Route path="/" element={<Navigate to='/login' replace />} />
-                <Route path="/login" element={<Login />} />
-            </>)}
+const App = () => {
+    if (sessionStorage.getItem('UID') === null) {
+        localStorage.clear();
+        sessionStorage.clear();
+        sessionStorage.setItem('UID', Date.now().toString());
+    }
 
-            <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-    </BrowserRouter>
-);
+    return (
+        <BrowserRouter>
+            <Routes>
+                {isLoggedIn() ? (<>
+                    <Route path="/" element={<Navigate to='/virus' replace />} />
+                    <Route path="/accounts" element={<Accounts />} />
+                    <Route path="/infos" element={<Infos />} />
+                    <Route path="/virus" element={<Virus />} />
+                </>) : (<>
+                    <Route path="/" element={<Navigate to='/login' replace />} />
+                    <Route path="/login" element={<Login />} />
+                </>)}
+
+                <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+        </BrowserRouter>
+    );
+};
 
 export default App;

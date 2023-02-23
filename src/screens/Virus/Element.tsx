@@ -1,14 +1,27 @@
 import { MouseEvent } from 'react';
 import { VirusElement } from '../../types/ComponentsTypes';
 
-// import {} from 'react';
-
 import Code from '../../components/Code';
 
-const Element = ({ code, filename, link, name, open = false }: VirusElement) => {
+const Element = ({ code, filename, name, open = false }: VirusElement) => {
     const download = (e: MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        console.log("Downloading : " + filename || name + "\nLink : " + link);
+
+        if (window.confirm("Download file")) {
+            let a = document.createElement('a'),
+                file = new Blob([code], { type: "octet/stream" }),
+                url = URL.createObjectURL(file);
+    
+            document.body.appendChild(a);
+            a.style.display = "none";
+            a.href = url;
+            a.download = filename || name;
+            a.click();
+    
+            URL.revokeObjectURL(url);
+            a.remove();
+        }
+
         e.currentTarget.blur();
     };
 
@@ -28,7 +41,7 @@ const Element = ({ code, filename, link, name, open = false }: VirusElement) => 
                 <div className="container">
                     <div className="subtitle">{filename || name}</div><hr />
 
-                    <Code language="js" children={code} />
+                    <Code language={"js"} children={code} />
                 </div>
             </details>
         </li>

@@ -1,6 +1,10 @@
 import { FormEvent, MouseEvent } from 'react';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { get, set } from '../../actions/posts';
+import { INFOS } from '../../constants';
 
 import Element from './Element';
 import Header from '../../components/Header';
@@ -9,16 +13,34 @@ import Navigation from '../../components/Navigation';
 import '../../assets/styles/virus.min.css';
 
 const Home = () => {
+    const [formData, setFormData] = useState({ content: "", name: "", slug: "" });
     const [showForm, toggleFormStatus] = useState(false);
 
+    const data = useRef<{ slug: string, content: string, name?: string }[]>(JSON.parse(localStorage.getItem(INFOS)||'[]'));
+
+    const dispatch = useDispatch();
+
     const toggleForm = (e: MouseEvent<HTMLButtonElement>) => {
-        toggleFormStatus(Boolean(e.currentTarget.classList.contains('close') ? 0 : 1));
+        toggleFormStatus(!e.currentTarget.classList.contains('close'));
         e.currentTarget.blur();
     };
 
     const addInfos = (e: FormEvent) => {
-        e.preventDefault();
+        e.preventDefault(); // @ts-ignore
+        dispatch(set(INFOS, formData));
+        toggleFormStatus(false);
+        loadData();
     };
+
+    const loadData = () => { // @ts-ignore
+        dispatch(get(INFOS));
+        data.current = JSON.parse(localStorage.getItem(INFOS)||'[]');
+        setTimeout(() => window.location.reload(), 200);
+    };
+
+    useEffect(() => {
+        if (localStorage.getItem(INFOS) === null) loadData();
+    })
 
     return (<>
         <Header />
@@ -40,13 +62,7 @@ const Home = () => {
                 </div>
 
                 <ul>{/* codes */}
-                    {Array.from(new Uint8Array(4)).map((_el, key) => 
-                        <Element
-                            key={key}
-                            slug={"Some infos - " + _el + (key+1)}
-                            content="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio consectetur quaerat, maxime et nulla, incidunt delectus veniam consequatur voluptatem alias possimus temporibus eos nemo repellat omnis beatae explicabo, accusamus eum cum ut. Delectus rerum obcaecati necessitatibus libero quis reprehenderit! Autem aperiam aliquam fugiat facere libero a excepturi tempora ab consequatur omnis provident eaque, delectus cumque consectetur ducimus consequuntur, quas fugit aspernatur nisi quos quisquam. Quae, esse est. Dolore veritatis nemo, amet deserunt eos ullam commodi, totam ad eius, reprehenderit a. Quod velit odio iste aspernatur consequuntur deleniti quos recusandae non amet fuga ab exercitationem labore asperiores at, reprehenderit quisquam consequatur eius officiis soluta blanditiis voluptatibus dolor cupiditate. Perferendis nostrum suscipit libero culpa atque earum molestiae. Veniam consequatur iure possimus sint omnis voluptatem, facere pariatur veritatis amet corrupti?"
-                        />
-                    )}
+                    {data.current.map((values, key) => <Element key={key} {...values} />)}
                 </ul>
             </div>
 
@@ -57,7 +73,12 @@ const Home = () => {
 
                     <h2>Add infos</h2>
 
-                    <textarea className="code" placeholder="Some text..."></textarea>
+                    <textarea
+                        className="Content"
+                        placeholder="Some text..."
+                        defaultValue={formData.content}
+                        onChange={e => setFormData({ ...formData, content: e.target.value })}
+                    ></textarea>
 
                     <div className="submit">
                         <button type="submit">Add</button>

@@ -1,12 +1,10 @@
 import { MouseEvent } from 'react';
-// import {  } from '../../types/ComponentsTypes';
 
-// import {} from 'react';
+import { copyToClipbord } from '../../actions/posts';
 
-const Element = ({ content, slug, title }: { content: string, slug: string, title?: string }) => {
+const Element = ({ content, slug, name }: { content: string, slug: string, name?: string }) => {
     const copyText = (e: MouseEvent<HTMLButtonElement>) => {
-        e.preventDefault();
-        console.log("Copying text");
+        copyToClipbord(content);
         e.currentTarget.blur();
     };
 
@@ -24,7 +22,8 @@ const Element = ({ content, slug, title }: { content: string, slug: string, titl
                 </summary>
 
                 <div className="container">
-                    {title ? <><div className="subtitle">{title}</div><hr /></> : ""}{content}
+                    {name ? <><div className="subtitle">{name}</div><hr /></> : ""}
+                    <div style={{ padding: '6px 12px' }}>{content}</div>
                 </div>
             </details>
         </li>

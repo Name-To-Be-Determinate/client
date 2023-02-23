@@ -1,15 +1,8 @@
 import React from 'react';
 
 export namespace Code {
-    type Themes =
-        | "coy"
-        | "dark"
-        | "funky"
-        | "okaidia"
-        | "solarizedlight"
-        | "tomorrow"
-        | "twilight"
-        | "default";
+    type Themes = "coy" | "dark" | "funky" | "okaidia" | "solarizedlight" | "tomorrow" | "twilight" | "default";
+
     type Languages =
         | "abap" | "abnf" | "actionscript" | "ada"
         | "adoc" | "agda" | "al" | "antlr4"
@@ -69,7 +62,7 @@ export namespace Code {
         | "mustache" | "n1ql" | "n4js" | "n4jsd"
         | "nand2tetris-hdl" | "nani" | "naniscript" | "nasm"
         | "nb" | "neon" | "nevod" | "nginx"
-        | "nim" | "nix" | "npmignore" | "nsis"
+        | "nim" | "nix" | "none" | "npmignore" | "nsis"
         | "objc" | "objectivec" | "objectpascal" | "ocaml"
         | "odin" | "opencl" | "openqasm" | "oscript"
         | "oz" | "parigp" | "parser" | "pascal"
@@ -122,7 +115,6 @@ export namespace Code {
 export type VirusElement = {
     code: string;
     filename?: string;
-    link?: string;
     name: string;
     open?: boolean;
 };
